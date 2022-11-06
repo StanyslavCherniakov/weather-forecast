@@ -1,0 +1,1 @@
+{"mappings":"AAEAA,QAAQC,ICFS,WCAA","sources":["src/index.js","src/scripts/test.js","src/scripts/test2.js"],"sourcesContent":["import { x } from './scripts/test';\nimport { y } from './scripts/test2';\nconsole.log(x, y);\n","export const x = 'TESTING1';\n","export const y = 'TESTING2';\n"],"names":["console","log"],"version":3,"file":"index.65b22f20.js.map"}
