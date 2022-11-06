@@ -2,7 +2,7 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://StanyslavCherniakov.github.io/weather-forecast/",
+  "homepage": "https://stanyslavcherniakov.github.io/weather-forecast",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /weather-forecast/"
