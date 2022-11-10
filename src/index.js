@@ -3,21 +3,40 @@ import { throttle } from 'throttle-debounce';
 import { debounce } from 'throttle-debounce';
 import cities from './partials/ua.json';
 
+const LSKEY = 'recent-cities';
 const inputRef = document.querySelector('input');
 const datalistRef = document.querySelector('#city');
 const getBtn = document.querySelector('.get-weather');
 const contentRef = document.querySelector('.content');
+const btnList = document.querySelector('.btn-list');
+
+const citiesData = {
+  cities: [],
+};
 
 makeMarkUp(cities);
 
 getBtn.addEventListener('click', onClick);
+btnList.addEventListener('click', onBtnClick);
+
+function onBtnClick(e) {
+  if (!e.target.classList.contains('btn')) {
+    return;
+  }
+  inputRef.value = e.target.textContent;
+}
 
 async function onClick() {
   const response = await getWeather(inputRef.value);
   console.log(response.data);
   makeWeatherMarkUp(response.data, inputRef.value);
+  citiesData.cities.push(inputRef.value);
+  console.log(citiesData);
+  localStorage.setItem(LSKEY, JSON.stringify(citiesData));
+
   inputRef.value = '';
 }
+addRecentCities();
 
 async function getWeather(city) {
   const coords = await axios.get(
@@ -57,4 +76,17 @@ function makeWeatherMarkUp(data, loc) {
   console.log(weatherMarkUp);
 
   contentRef.insertAdjacentHTML('beforeend', weatherMarkUp);
+}
+
+function addRecentCities() {
+  const dataFromLs = localStorage.getItem(LSKEY);
+  const citiesFromLs = JSON.parse(dataFromLs);
+  citiesData.cities = citiesFromLs.cities;
+
+  const markUpBtn = citiesData.cities
+    .slice(-4)
+    .map(el => `<li class="btn">${el}</li>`)
+    .join('');
+  console.log(markUpBtn);
+  btnList.insertAdjacentHTML('beforeend', markUpBtn);
 }

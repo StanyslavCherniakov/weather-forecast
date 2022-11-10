@@ -62,3 +62,12 @@ body {
 .descr {
   font-size: 22px;
 }
+
+.btn-list {
+  display: flex;
+  justify-content: center;
+}
+
+.btn:not(:last-child) {
+  margin-right: 10px;
+}
