@@ -1,5 +1,21 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
 body {
   background-color: teal;
   padding-top: 20px;
@@ -22,4 +38,27 @@ body {
 
 #city {
   height: 300px;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrap p:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.location {
+  font-size: 40px;
+}
+
+.temp {
+  font-size: 22px;
+}
+
+.descr {
+  font-size: 22px;
 }
