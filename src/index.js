@@ -40,7 +40,7 @@ addRecentCities();
 
 async function getWeather(city) {
   const coords = await axios.get(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=4e61d42aff974cc17d2ce0b25137b2df`
+    `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=4e61d42aff974cc17d2ce0b25137b2df`
   );
   const countryUa = coords.data.filter(el => el.country === 'UA');
   const lat = countryUa[0].lat;
