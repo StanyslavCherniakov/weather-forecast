@@ -30,14 +30,18 @@ function onBtnClick(e) {
 }
 
 async function onClick() {
-  const response = await getWeather(inputRef.value);
-  contentRef.innerHTML = '';
-  makeWeatherMarkUp(response.data, inputRef.value, contentRef);
-  citiesData.cities.push(inputRef.value);
-  console.log(citiesData);
-  localStorage.setItem(LSKEY, JSON.stringify(citiesData));
-  addRecentCities();
-  inputRef.value = '';
+  try {
+    const response = await getWeather(inputRef.value);
+    contentRef.innerHTML = '';
+    makeWeatherMarkUp(response.data, inputRef.value, contentRef);
+    citiesData.cities.push(inputRef.value);
+    console.log(citiesData);
+    localStorage.setItem(LSKEY, JSON.stringify(citiesData));
+    addRecentCities();
+    inputRef.value = '';
+  } catch (error) {
+    alert('Enter coorect city');
+  }
 }
 
 addRecentCities();
