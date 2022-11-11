@@ -28,9 +28,11 @@ export function makeWeatherMarkUp(data, loc, contentRef) {
     <p class="card-text">${data.weather[0].description}</p>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Real temperature: ${data.main.temp} &#8451;</li>
+    <li class="list-group-item">Real temperature: ${Math.round(
+      data.main.temp
+    )} &#8451;</li>
     <li class="list-group-item">Wind dirrection: ${windDirrection}</li>
-    <li class="list-group-item">Wind speed: ${data.wind.speed}</li>
+    <li class="list-group-item">Wind speed: ${data.wind.speed} m/s</li>
   </ul>
   <div class="card-body">
     <a href="#" class="card-link">Card link</a>
