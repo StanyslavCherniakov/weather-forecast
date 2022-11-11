@@ -26,14 +26,17 @@ body {
   justify-content: center;
 }
 
-.content {
-  background-color: gray;
-  max-width: 500px;
-  min-height: 700px;
-  margin-top: 30px;
+input {
+  width: 100%;
+}
+
+.get-weather {
+  min-width: 130px;
+}
+
+.card {
   margin-left: auto;
   margin-right: auto;
-  border-radius: 25px;
 }
 
 #city {
