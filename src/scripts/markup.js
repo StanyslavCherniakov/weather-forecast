@@ -21,26 +21,22 @@ export function makeWeatherMarkUp(data, loc, contentRef) {
   if (data.wind.deg > 225 && data.wind.deg < 315) {
     windDirrection = '&#8658; West wind';
   }
-  const weatherMarkUp = `<div class="card" style="width: 18rem;">
-  <img src="https://pixabay.com/get/gd71eeccd1554140901506feeef2850ecd49be1be3522c36989f435392936096b9bf8a7f2a3deedafb5fda3a7839fe286395d2bf88f062d47a883a88d45c1e974_1280.jpg" class="card-img-top" width = 600 alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Ukraine, ${loc}</h5>
-    <p class="card-text">${data.weather[0].description}</p>
+  const weatherMarkUp = `<div class='weather-card'>
+  <div class='wrapper-top'>
+    <p class='city-name'>${loc}</p>
+    <img src='http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png' alt='' width='150px' height='150px'>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Real temperature: ${Math.round(
-      data.main.temp
-    )} &#8451;</li>
-    <li class="list-group-item">Wind dirrection: ${windDirrection}</li>
-    <li class="list-group-item">Wind speed: ${data.wind.speed} m/s</li>
+  <ul class='data-list'>
+    <li class='real-temp'>Real temperature: ${Math.round(
+    data.main.temp,
+  )} &#8451;</li>
+    <li class='wind-speed'>Wind speed: ${Math.round(data.wind.speed)} m/s</li>
+    <li class='wind-direction'>Wind direction: ${windDirrection}</li>
   </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
 </div>`;
 
   console.log(weatherMarkUp);
 
   contentRef.insertAdjacentHTML('beforeend', weatherMarkUp);
 }
+

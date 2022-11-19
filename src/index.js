@@ -1,15 +1,14 @@
-import { throttle } from 'throttle-debounce';
-import { debounce } from 'throttle-debounce';
 import cities from './partials/ua.json';
 import { getWeather } from './scripts/api-servise';
 import { makeMarkUp, makeWeatherMarkUp } from './scripts/markup';
+
 console.log(makeMarkUp);
 
 const LSKEY = 'recent-cities';
 const inputRef = document.querySelector('input');
 const datalistRef = document.querySelector('#city');
-const getBtn = document.querySelector('.get-weather');
-const contentRef = document.querySelector('.container.content');
+const getBtn = document.querySelector('.getweather-btn');
+const contentRef = document.querySelector('.content');
 const btnList = document.querySelector('.btn-list');
 console.log(contentRef);
 
@@ -55,7 +54,7 @@ function addRecentCities() {
     .slice(-4)
     .map(
       el =>
-        `<button type="button" class="btn btn-secondary btn-sm">${el}</button>`
+        `<button type='button' class='btn recent-cities'>${el}</button>`,
     )
     .join('');
   console.log(markUpBtn);

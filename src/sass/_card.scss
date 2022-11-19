@@ -1,0 +1,112 @@
+body {
+  background-color: gainsboro;
+  padding-top: 20px;
+}
+
+.container {
+  width: 700px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media screen and (max-width: 699px) {
+    width: 100%;
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.btn-list {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.recent-cities {
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+
+  transition: transform 250ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    transform: scale(105%);
+    background-color: #7FFFD4;
+  }
+}
+
+.recent-cities:not(:last-child) {
+  margin-right: 5px;
+}
+
+.form-control {
+  width: 400px;
+  height: 30px;
+  margin-right: 5px;
+  padding-left: 15px;
+
+  border: 1px solid cornflowerblue;
+  border-radius: 10px;
+
+  &:focus {
+    outline: transparent;
+    border: 1px solid yellow;
+  }
+}
+
+.getweather-btn {
+  border: none;
+  border-radius: 10px;
+  min-width: 100px;
+
+  cursor: pointer;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(103, 121, 9, 1) 0%, rgba(212, 233, 63, 1) 47%, rgba(0, 212, 255, 1) 72%);
+}
+
+.weather-card {
+  width: 600px;
+  height: 350px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px;
+  background-color: #556B2F;
+  border-radius: 20px;
+
+  @media screen and (max-width: 699px) {
+    width: 100%;
+  }
+}
+
+.weather-card.temp {
+  background-image: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(103, 121, 9, 1) 0%, rgba(212, 233, 63, 1) 47%, rgba(0, 212, 255, 1) 72%);;
+}
+
+.placeholder {
+  text-align: center;
+  font-size: 50px;
+}
+
+.wrapper-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.city-name {
+  font-size: 40px;
+}
+
+.data-list {
+  font-size: 20px;
+}
+
+.data-list li:not(:last-child) {
+  margin-bottom: 20px;
+}
