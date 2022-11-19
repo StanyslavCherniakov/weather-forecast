@@ -49,9 +49,11 @@ function addRecentCities() {
   const dataFromLs = localStorage.getItem(LSKEY);
   const citiesFromLs = JSON.parse(dataFromLs);
   citiesData.cities = citiesFromLs.cities;
+  const filteredCities = Array.from(new Set(citiesData.cities));
+  console.log(filteredCities);
 
-  const markUpBtn = citiesData.cities
-    .slice(-4)
+  const markUpBtn = filteredCities
+    .slice(-5)
     .map(
       el =>
         `<button type='button' class='btn recent-cities'>${el}</button>`,
