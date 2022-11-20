@@ -34,9 +34,7 @@ export function makeWeatherMarkUp(data, loc, contentRef) {
     <li class='wind-direction'>Wind direction: ${windDirrection}</li>
   </ul>
 </div>`;
-
-  console.log(weatherMarkUp);
-
+  
   contentRef.insertAdjacentHTML('beforeend', weatherMarkUp);
 }
 

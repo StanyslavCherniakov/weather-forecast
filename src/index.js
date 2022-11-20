@@ -1,8 +1,7 @@
 import cities from './partials/ua.json';
 import { getWeather } from './scripts/api-servise';
 import { makeMarkUp, makeWeatherMarkUp } from './scripts/markup';
-
-console.log(makeMarkUp);
+import getRandomHexColor from './scripts/random-color';
 
 const LSKEY = 'recent-cities';
 const inputRef = document.querySelector('input');
@@ -10,7 +9,6 @@ const datalistRef = document.querySelector('#city');
 const getBtn = document.querySelector('.getweather-btn');
 const contentRef = document.querySelector('.content');
 const btnList = document.querySelector('.btn-list');
-console.log(contentRef);
 
 const citiesData = {
   cities: [],
@@ -34,10 +32,11 @@ async function onClick() {
     contentRef.innerHTML = '';
     makeWeatherMarkUp(response.data, inputRef.value, contentRef);
     citiesData.cities.push(inputRef.value);
-    console.log(citiesData);
     localStorage.setItem(LSKEY, JSON.stringify(citiesData));
     addRecentCities();
     inputRef.value = '';
+    const weatherCardRef = document.querySelector('.weather-card');
+    weatherCardRef.style.backgroundColor = getRandomHexColor();
   } catch (error) {
     alert('Enter coorect city');
   }
@@ -50,7 +49,6 @@ function addRecentCities() {
   const citiesFromLs = JSON.parse(dataFromLs);
   citiesData.cities = citiesFromLs.cities;
   const filteredCities = Array.from(new Set(citiesData.cities));
-  console.log(filteredCities);
 
   const markUpBtn = filteredCities
     .slice(-5)
@@ -59,6 +57,5 @@ function addRecentCities() {
         `<button type='button' class='btn recent-cities'>${el}</button>`,
     )
     .join('');
-  console.log(markUpBtn);
   btnList.innerHTML = markUpBtn;
 }
