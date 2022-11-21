@@ -1,9 +1,13 @@
 body {
   background-color: gainsboro;
   padding-top: 20px;
+  font-family: 'Merriweather', serif;
 }
 
 .container {
+  position: relative;
+  z-index: 2;
+
   width: 700px;
   margin-right: auto;
   margin-left: auto;
@@ -23,6 +27,7 @@ body {
 
 .btn-list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 30px;
 }
@@ -76,8 +81,10 @@ body {
   margin-right: auto;
   margin-left: auto;
   padding: 20px;
-  background-color: #556B2F;
+
+  backdrop-filter: blur(4px);
   border-radius: 20px;
+  box-shadow: 13px 9px 21px 8px rgb(0 0 0 / 75%);
 
   @media screen and (max-width: 699px) {
     width: 100%;
@@ -88,19 +95,48 @@ body {
   background-image: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(103, 121, 9, 1) 0%, rgba(212, 233, 63, 1) 47%, rgba(0, 212, 255, 1) 72%);;
 }
 
+.video-wrapper {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  pointer-events: none;
+}
+
+.weather-wrapper__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .placeholder {
   text-align: center;
   font-size: 50px;
+
 }
 
 .wrapper-top {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  margin-bottom: 30px;
 }
 
 .city-name {
-  font-size: 40px;
+  font-size: 50px;
+  text-shadow: 4px 4px 4px rgba(66, 68, 90, 1);
+}
+
+.weather-status {
+  position: absolute;
+  top: 115px;
+  left: 0;
+  font-size: 30px;
 }
 
 .data-list {
@@ -109,4 +145,10 @@ body {
 
 .data-list li:not(:last-child) {
   margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .recent-cities {
+    margin-bottom: 5px;
+  }
 }

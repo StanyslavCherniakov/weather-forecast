@@ -1,3 +1,11 @@
+export function addBackGround(src, videoRef) {
+  const markUp = `<div class='video-wrapper'>
+  <video class='weather-wrapper__video' autoplay muted loop
+         src='${src}'></video>
+</div>`;
+  videoRef.innerHTML = markUp;
+}
+
 export function makeMarkUp(data, datalistRef) {
   const markUp = data
     .map(el => `<option value='${el.city}'></option>`)
@@ -25,6 +33,7 @@ export function makeWeatherMarkUp(data, loc, contentRef) {
   <div class='wrapper-top'>
     <p class='city-name'>${loc}</p>
     <img src='http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png' alt='' width='150px' height='150px'>
+  <p class='weather-status'>${data.weather[0].main}</p>
   </div>
   <ul class='data-list'>
     <li class='real-temp'>Real temperature: ${Math.round(
@@ -34,7 +43,7 @@ export function makeWeatherMarkUp(data, loc, contentRef) {
     <li class='wind-direction'>Wind direction: ${windDirrection}</li>
   </ul>
 </div>`;
-  
+
   contentRef.insertAdjacentHTML('beforeend', weatherMarkUp);
 }
 
